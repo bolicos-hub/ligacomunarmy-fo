@@ -1,10 +1,19 @@
 // import { NextApiRequest, NextApiResponse } from 'next'
 
-// export default (_: NextApiRequest, res: NextApiResponse) => {
-//   res.status(200).json({ text: 'Hello' })
+// export async function GET(_request: NextApiRequest, res: NextApiResponse) {
+//   const data = {
+//     data: 'Hello, Next.js!'
+//   }
+
+//   return res.status(200).json(data)
 // }
 
+ import { NextResponse } from 'next/server';
 
-export async function GET(_request: Request) {
-  return new Response('Hello, Next.js!')
-}
+ export async function GET() {
+   const data = {
+     text: 'Hello, Next.js!'
+   }
+
+   return NextResponse.json({ data })
+ }
